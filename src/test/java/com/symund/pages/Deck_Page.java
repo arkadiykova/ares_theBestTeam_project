@@ -9,12 +9,31 @@ public class Deck_Page {
     public Deck_Page(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
-    @FindBy(linkText = "/index.php/apps/deck/")
+    @FindBy(xpath = "//a[@class='app-navigation-toggle']")
+    public WebElement burgerMenu;
+
+    @FindBy(xpath = "//a[@aria-label='Deck']")
     public WebElement deckModule;
+
+    @FindBy(xpath = "//input[@type='text']")
+    public WebElement boardNameInputBox;
+
+    @FindBy(xpath = "//div[@class='app-navigation-entry__icon-bullet']")
+    public WebElement boardName;
+
+    @FindBy(xpath = "//span[@title='New Board']")
+    public WebElement newlyCreatedBoardName;
+
+    @FindBy(xpath = "//span[@title='Add board']")
+    public WebElement addBoardPlusSign;
+
+    @FindBy(xpath = "//button[@rel='noreferrer noopener']")
+    public WebElement topPlusSignForList;
 
     @FindBy(xpath = "//span[@title='All boards']")
     public WebElement allBoardsButton;
-
+    @FindBy(xpath = "//input[@type='text']")
+    public WebElement newlyCreatedList;
 
     @FindBy(id = "new-stack-input-main")
     public WebElement inputListName;
@@ -28,6 +47,9 @@ public class Deck_Page {
     @FindBy(id = "new-stack-input-main")
     public WebElement cardNameBox;
 
+    @FindBy(xpath = "//div[@class='card-upper']")
+    public WebElement newlyCreatedCardName;
+
     @FindBy(xpath = "(//input[@type='submit'])[2]")
     public WebElement cardBoxArrowSign;
 
@@ -36,4 +58,9 @@ public class Deck_Page {
 
     @FindBy(xpath = "//span[.='Assign to me']")
     public WebElement assignToMeButton;
+
+    @FindBy(xpath = "//div[@class='avatarlist--inline']")
+    public WebElement userAvatar;
+
+
 }
