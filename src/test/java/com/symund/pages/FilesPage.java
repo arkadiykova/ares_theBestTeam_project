@@ -29,6 +29,35 @@ public class FilesPage {
 public List<WebElement> notFavoriteFolders;
 @FindBy (xpath = "//tr[@data-type='file' and not(contains(@data-favorite, 'true'))]")
 public List<WebElement> notFavoriteFiles;
+@FindBy(xpath = "//a[@data-sort='size']")
+public WebElement SizeButton;
+@FindBy(xpath = "//a[@data-sort='mtime']")
+public WebElement ModifiedButton;
+@FindBy(xpath = "//tr[@data-favorite='true']")
+public List<WebElement> FavoriteFiles2;
+@FindBy(xpath = "//span[.='Not favorited']/../../../../../..")
+public List<WebElement> notFavoriteFiles2;
+
+
+@FindBy(xpath="//tr[@data-type='file' and not(contains(@data-favorite, 'true'))]/td[4]/span")
+public List<WebElement> notFavoriteFilesDate;
+
+
+@FindBy(xpath = "//tr[@data-favorite='true']/td[4]/span")
+    public List<WebElement> FavoriteFilesDate;
+@FindBy(xpath = "//label[@for='select_all_files']")
+public WebElement checkBox;
+@FindBy(xpath = "//td[@class='selection']")
+public List<WebElement> allCheckBoxes;
+@FindBy(xpath = "//table[@id='filestable']//a//span")
+public WebElement totalValueOfFoldersAndFiles;
+
+
+
+
+
+
+
 
 
 
