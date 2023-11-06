@@ -1,6 +1,8 @@
 package com.symund.utilities;
 
+import com.symund.pages.LoginPage;
 import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -27,6 +29,42 @@ public class BrowserUtils {
 
         }
     }
+
+    //this method will retrieve any module from main menu by its name. @Test below to test it out
+    public static WebElement selectModule(String moduleName) {
+        WebElement header;
+        try {
+            header = Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']"));
+        } catch (NoSuchElementException e) {
+            return null; // Return null if the module is not found.
+        }
+
+
+        List<WebElement> modules = header.findElements(By.tagName("li"));
+        for (WebElement module : modules) {
+            if (module.getAttribute("data-id").contains(moduleName.toLowerCase())){
+                return module; // Return the first displayed module.
+            }
+        }
+
+        return null; // Return null if no displayed modules are found.
+    }
+
+//    @Test
+//    public void testmethod(){
+//        Driver.getDriver().get("http://qa.symund.com/");
+//        new LoginPage().login("user");
+//        WebElement contactsModule = selectModule("Deck");
+//        if (contactsModule != null) {
+//            contactsModule.click();
+//        } else {
+//            // Handle the case where "Contacts" module is not found.
+//            System.out.println("Contacts module not found.");
+//        }
+//    }
+
+
+
 
     public static void switchWindowAndVerify(String expectedInURL, String expectedInTitle){
 

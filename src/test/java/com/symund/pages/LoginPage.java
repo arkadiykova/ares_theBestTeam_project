@@ -4,6 +4,8 @@ package com.symund.pages;
 import com.symund.utilities.ConfigurationReader;
 import com.symund.utilities.Driver;
 import static org.junit.Assert.assertTrue; //used static keyword to not have to call assertTrue method throw Assert
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -55,6 +57,15 @@ public class LoginPage {
 
     }
 
+    //second login method is for profile functionality because it requires changes to the username
+    public void login(String userType, String report){
+        String usN = configurationReader.getProperty(userType+"_username_arkadii_test_group");
+        String usTP = configurationReader.getProperty(userType+"_password_arkadii_test_group");
+
+        userNameBar.sendKeys(usN);
+        passwordBar.sendKeys(usTP);
+        submit.click();
+    }
 
 
 
