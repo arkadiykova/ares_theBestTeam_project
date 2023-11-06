@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SearchStepDefinitions {
@@ -28,7 +29,7 @@ public class SearchStepDefinitions {
         this.dashboardPage = new DashboardPage();
         this.filesPage = new FilesPage();
         this.fileName = "ReadMe.md";
-        this.wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
 
     }
 
@@ -40,8 +41,6 @@ public class SearchStepDefinitions {
 
     @And("the user types file name in the search box")
     public void theUserTypesFileNameInTheSearchBox() {
-        dashboardPage.getNavigationIconByName(Driver.getDriver(), "file").click();
-
         dashboardPage.getSearchButton().click();
         dashboardPage.getSearchBox().sendKeys(fileName);
         wait.until(ExpectedConditions.visibilityOf( dashboardPage.getSearchResult().get(0)));
@@ -56,10 +55,8 @@ public class SearchStepDefinitions {
 
     @Then("the user should be redirected to a new page and see the file")
     public void theUserShouldBeRedirectedToANewPageAndSeeTheFile() {
-       // filesPage.get
-
-
-
+        wait.until(ExpectedConditions.visibilityOf(filesPage.getAllFiles()));
+        assertTrue(filesPage.getAllFiles().isDisplayed());
     }
 
 

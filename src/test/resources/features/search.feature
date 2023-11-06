@@ -10,4 +10,3 @@ Feature: Search Functionalities, Dashboard Icons
     When the user presses on search icon
     And the user types file name in the search box
     Then the user should be redirected to a new page and see the file
-    Then the user should see the "Details" of the file
