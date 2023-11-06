@@ -17,6 +17,7 @@ import org.junit.runner.RunWith;
         glue = "com/symund/step_definitions",
         dryRun = false,
         tags = "", //  We have to add login as a precondition to EACH feature file and use login Method in LoginPage.
+
         publish = true //generating a report with public link
 )
 public class CukesRunner {}
