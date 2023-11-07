@@ -10,6 +10,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
@@ -65,8 +66,10 @@ public class Raziia_US010_Files_Step_Def {
         boolean sortedStatus = isSorted(nameOfFiles);
 
         if (sortedStatus) {
+            Assert.assertTrue(true);
             System.out.println("The Files are sorted.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("The Files are not sorted.");
         }
 
@@ -80,8 +83,10 @@ public class Raziia_US010_Files_Step_Def {
         boolean sortedStatus2 = isSorted(nameOfFavoriteFolders);
 
         if (sortedStatus2) {
+            Assert.assertTrue(true);
             System.out.println("The Favorite folders are sorted.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("The Favorite folders are not sorted.");
         }
         List<String> nameOfFavoriteFiles = new ArrayList<>();
@@ -91,8 +96,10 @@ public class Raziia_US010_Files_Step_Def {
         boolean sortedStatus3 = isSorted(nameOfFavoriteFiles);
 
         if (sortedStatus3) {
+            Assert.assertTrue(true);
             System.out.println("The Favorite files are sorted.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("The Favorite files are not sorted.");
         }
         List<String> nameOfAllFilesFolder = new ArrayList<>();
@@ -102,8 +109,10 @@ public class Raziia_US010_Files_Step_Def {
         boolean sortedStatus4 = isSorted(nameOfAllFilesFolder);
 
         if (sortedStatus4) {
+            Assert.assertTrue(true);
             System.out.println("The Folders are sorted.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("The Folders  are not sorted.");
         }
 
@@ -135,10 +144,13 @@ public class Raziia_US010_Files_Step_Def {
 
             // Perform actions based on the sorted status
             if (sortedAscending) {
+                Assert.assertTrue(true);
                 System.out.println("Files are sorted by size in ascending order.");
             } else if (sortedDescending) {
+                Assert.assertTrue(true);
                 System.out.println("Files are sorted by size in descending order.");
             } else {
+                Assert.assertTrue(false);
                 System.out.println("Files are not sorted by size.");
             }
 
@@ -155,10 +167,13 @@ public class Raziia_US010_Files_Step_Def {
 
         // Perform actions based on the sorted status
         if (sortedAscending3) {
+            Assert.assertTrue(true);
             System.out.println("Favorite files are sorted by size in ascending order.");
         } else if (sortedDescending3) {
+            Assert.assertTrue(true);
             System.out.println("Favorite files are sorted by size in descending order.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("Favorite files are not sorted by size.");
         }
     }
@@ -187,10 +202,13 @@ public class Raziia_US010_Files_Step_Def {
         boolean descendingOrder1 = isSortedDescendingDate(datesOfFiles);
         // Perform actions based on the sorted status
         if (ascendingOrder1) {
+            Assert.assertTrue(true);
             System.out.println("Files are sorted by modified date in ascending order.");
         } else if (descendingOrder1) {
+            Assert.assertTrue(true);
             System.out.println("Files are sorted by modified date in descending order.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("Files are not sorted by modified date.");
         }
         List<LocalDate> datesOfFavoriteFiles = new ArrayList<>();
@@ -209,10 +227,13 @@ public class Raziia_US010_Files_Step_Def {
         boolean descendingOrder2 = isSortedDescendingDate(datesOfFavoriteFiles);
         // Perform actions based on the sorted status
         if (ascendingOrder2) {
+            Assert.assertTrue(true);
             System.out.println("Favorite Files are sorted by modified date in ascending order.");
         } else if (descendingOrder2) {
+            Assert.assertTrue(true);
             System.out.println("Favorite Files are sorted by modified date in descending order.");
         } else {
+            Assert.assertTrue(false);
             System.out.println("Favorite Files are not sorted by modified date.");
         }
 
