@@ -38,12 +38,6 @@ private LoginPage loginPage;
     }
     int groupCount = 0;
 
-    @Given("user is logged in as a {string}")
-    public void user_is_logged_in_as_a(String string) {
-       loginPage.login(string);
-    }
-
-
 
     @Given("the user is on the landing page")
     public void the_user_is_on_the_landing_page() {

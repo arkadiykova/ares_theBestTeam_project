@@ -3,6 +3,8 @@ package com.symund.pages;
 import com.symund.utilities.BrowserUtils;
 import com.symund.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
@@ -15,7 +17,61 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BasePage {  // not worked on yet, please notify team members if changes made
+public class BasePage {
+
+    public BasePage(){
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
+
+    public WebElement getSearchButton() {
+        return searchButton;
+    }
+
+    public WebElement getSearchBox() {
+        return searchBox;
+    }
+
+    @FindBy(css = "svg[class='material-design-icon__svg']")
+    private WebElement searchButton;
+
+    @FindBy(css = "logologo-icon")
+    private WebElement dashIcon;
+
+    @FindBy(xpath = "//input[@type='search']")
+    private WebElement searchBox;
+
+    @FindBy(xpath = "//ul[@id='appmenu']/li[@data-id='files']")
+    private WebElement filesIcon;
+
+    public List<WebElement> getSearchResult() {
+        return searchResult;
+    }
+
+    @FindBy(css = "ul[class='unified-search__results unified-search__results-files']")
+    private List<WebElement> searchResult;
+
+
+    public WebElement getNavigationIconByName(WebDriver driver, String iconName) {
+        if (iconName == null || iconName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Icon name must not be null or empty.");
+        }
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(
+                    By.xpath("//ul[@id='appmenu']/li[@data-id='" + iconName + "']")
+            ));
+        } catch (NoSuchElementException e) {
+            System.err.println("The navigation icon with name '" + iconName + "' was not found.");
+            throw e;
+        }
+    }
+
+    public WebElement getDashIcon() {
+        return dashIcon;
+    }
+
+
+//    not worked on yet, please notify team members if changes made
 //    @FindBy(css = "span.title-level-1")
 //    public List<WebElement> menuOptions;
 //
